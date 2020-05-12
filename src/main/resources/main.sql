@@ -3,9 +3,11 @@
 CREATE TABLE flashcards (
     id              SERIAL PRIMARY KEY,
     front           VARCHAR(100) NOT NULL,
-    back            VARCHAR(100) NOT NULL,
+    back            VARCHAR(400) NOT NULL,
     okn             DECIMAL NOT NULL,
     nokn            DECIMAL NOT NULL,
+    topic           VARCHAR(100) NOT NULL,
+    subtopic        VARCHAR(100) NOT NULL,
     enable          BOOLEAN  NOT NULL,
     updated_at      TIMESTAMP,
     created_at      TIMESTAMP

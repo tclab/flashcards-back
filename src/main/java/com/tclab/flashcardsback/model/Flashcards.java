@@ -18,6 +18,8 @@ public class Flashcards {
     private String back;
     private Float okn;
     private Float nokn;
+    private String topic;
+    private String subtopic;
     private Boolean enable;
     private Timestamp updatedAt;
     private Timestamp createdAt;
