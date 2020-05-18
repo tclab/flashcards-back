@@ -1,8 +1,8 @@
 connection:
-  host: ec2-18-210-214-86.compute-1.amazonaws.com
-  username: kkascofhdryqkd
-  password: c5b90f174e0c69f1146da3a88dd5fa8859c1f2ef541e9c523031e3c78ddf79d9
-  database: daknfqg9qlcnb6
+  host: ec2-34-202-88-122.compute-1.amazonaws.com
+  username: qtdcvpggpudvxc
+  password: f0394ab16fa051e2e5337b571f2d5099a30a648f299cf4dc231c907b7ababbe0
+  database: d1vflfg1s4inlb
   sslMode: require
   port: 5432
 

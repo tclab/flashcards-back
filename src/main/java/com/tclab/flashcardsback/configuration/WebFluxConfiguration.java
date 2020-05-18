@@ -10,21 +10,19 @@ import org.springframework.web.reactive.config.WebFluxConfigurerComposite;
  * Cors configuration
  */
 @Configuration
-public class WebFluxConfiguration {
+public class WebFluxConfiguration extends WebFluxConfigurerComposite{
 
-  /**
-   * Set the header Access-Control-Allow-Origin as *
-   * @return
-   */
+  @Override
+  public void addCorsMappings(CorsRegistry corsRegistry) {
+    corsRegistry
+        .addMapping("/**")
+        .allowedOrigins("*")
+        .allowedMethods("*");
+  }
+
   @Bean
   public WebFluxConfigurer corsConfigurer() {
-    return new WebFluxConfigurerComposite() {
-
-      @Override
-      public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("*")
-            .allowedMethods("*");
-      }
-    };
+    return new WebFluxConfiguration();
   }
+
 }
