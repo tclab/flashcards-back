@@ -13,6 +13,11 @@ CREATE TABLE flashcards (
     created_at      TIMESTAMP
 );
 
+CREATE TABLE topics (
+    id              SERIAL PRIMARY KEY,
+    name            VARCHAR(100) NOT NULL
+);
+
 -- CREATE TABLE categories (
 --    id             SERIAL PRIMARY KEY,
 --    name           VARCHAR(100) NOT NULL
