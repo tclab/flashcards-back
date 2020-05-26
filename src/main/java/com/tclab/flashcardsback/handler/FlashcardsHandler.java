@@ -22,8 +22,17 @@ public class FlashcardsHandler {
      * @param request
      * @return
      */
-    public Mono<ServerResponse> save(ServerRequest request) {
-        return flashcardService.save(request);
+    public Mono<ServerResponse> createFlashcard(ServerRequest request) {
+        return flashcardService.createFlashcard(request);
+    }
+
+    /**
+     * This method handles the save request
+     * @param request
+     * @return
+     */
+    public Mono<ServerResponse> updateFlashcard(ServerRequest request) {
+        return flashcardService.updateFlashcard(request);
     }
 
     /**
@@ -53,6 +62,16 @@ public class FlashcardsHandler {
      */
     public Mono<ServerResponse> findRandom(ServerRequest request) {
         return flashcardService.findRandom(request);
+
+    }
+
+    /**
+     * This method handles the save request
+     * @param request
+     * @return
+     */
+    public Mono<ServerResponse> delete(ServerRequest request) {
+        return flashcardService.delete(request);
 
     }
 }

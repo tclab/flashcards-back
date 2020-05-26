@@ -33,11 +33,9 @@ public class WebFluxConfiguration extends WebFluxConfigurerComposite{
   CorsWebFilter corsWebFilter() {
     CorsConfiguration corsConfig = new CorsConfiguration();
     corsConfig.setAllowedOrigins(Arrays.asList("*"));
-//    corsConfig.setMaxAge(8000L);
     corsConfig.addAllowedMethod("*");
 
-    UrlBasedCorsConfigurationSource source =
-        new UrlBasedCorsConfigurationSource();
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", corsConfig);
 
     return new CorsWebFilter(source);

@@ -27,9 +27,24 @@ public class FlashcardService {
    * @param request
    * @return
    */
-  public Mono<ServerResponse> save(ServerRequest request) {
-    return ok().contentType(MediaType.APPLICATION_JSON)
-        .body(request.bodyToMono(Flashcards.class).flatMap(repository::save), Flashcards.class);
+  public Mono<ServerResponse> createFlashcard(ServerRequest request) {
+    return ok()
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(request.bodyToMono(Flashcards.class)
+            .flatMap(repository::save), Flashcards.class);
+  }
+
+  /**
+   * This method save in the table the element in the request
+   *
+   * @param request
+   * @return
+   */
+  public Mono<ServerResponse> updateFlashcard(ServerRequest request) {
+    return ok()
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(request.bodyToMono(Flashcards.class)
+            .flatMap(repository::save), Flashcards.class);
   }
 
   /**
@@ -66,6 +81,22 @@ public class FlashcardService {
     return ok()
         .contentType(MediaType.APPLICATION_JSON)
         .body(repository.findRandomFlashcard(), Flashcards.class);
+  }
+
+  /**
+   * Get a list of flashcards (all)
+   * @param request
+   * @return
+   */
+  public Mono<ServerResponse> delete(ServerRequest request) {
+    int id = Integer.parseInt(
+        Optional
+            .of(request.pathVariable("id"))
+            .orElse("-1"));
+
+    return ok()
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(repository.deleteById(id), Flashcards.class);
   }
 
 }
