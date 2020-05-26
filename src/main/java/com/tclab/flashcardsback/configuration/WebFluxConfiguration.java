@@ -20,20 +20,22 @@ public class WebFluxConfiguration extends WebFluxConfigurerComposite{
   public void addCorsMappings(CorsRegistry corsRegistry) {
     corsRegistry
         .addMapping("/**")
+        .allowedHeaders("*")
         .allowedOrigins("*")
-        .allowedMethods("*");
+        .allowedMethods("PUT","POST","GET","DELETE", "OPTIONS");
   }
 
-  @Bean
-  public WebFluxConfigurer corsConfigurer() {
-    return new WebFluxConfiguration();
-  }
+//  @Bean
+//  public WebFluxConfigurer corsConfigurer() {
+//    return new WebFluxConfiguration();
+//  }
 
   @Bean
   CorsWebFilter corsWebFilter() {
     CorsConfiguration corsConfig = new CorsConfiguration();
     corsConfig.setAllowedOrigins(Arrays.asList("*"));
     corsConfig.addAllowedMethod("*");
+    corsConfig.applyPermitDefaultValues();
 
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", corsConfig);
